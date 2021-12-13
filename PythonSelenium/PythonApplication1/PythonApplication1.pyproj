@@ -4,14 +4,17 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7a126a8f-975a-44c2-badb-f943f642fd49</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>AddtoCartNoSignIn_Test.py</StartupFile>
+    <StartupFile>Import_Testing.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>PythonApplication1</Name>
     <RootNamespace>PythonApplication1</RootNamespace>
-    <IsWindowsApplication>False</IsWindowsApplication>
+    <IsWindowsApplication>True</IsWindowsApplication>
+    <TestFramework>unittest</TestFramework>
+    <UnitTestPattern>*_Test.py</UnitTestPattern>
+    <UnitTestRootDirectory>tests</UnitTestRootDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,12 +25,25 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AddtoCartNoSignIn_Test.py" />
-    <Compile Include="CheckAccountExists_Test.py" />
-    <Compile Include="CreateAccountandPlaceOrder_Test.py" />
-    <Compile Include="CreateAccount_Test.py" />
-    <Compile Include="LogintoAccountandPlaceOrder_Test.py" />
-    <Compile Include="PythonApplication1.py" />
+    <Compile Include="ConfigFile.py" />
+    <Compile Include="Import_Testing.py" />
+    <Compile Include="tests\Simple_Test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tests\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tests\AddtoCartNoSignIn_Test.py" />
+    <Compile Include="tests\CheckAccountExists_Test.py" />
+    <Compile Include="tests\CreateAccountandPlaceOrder_Test.py" />
+    <Compile Include="tests\CreateAccount_Test.py" />
+    <Compile Include="tests\LogintoAccountandPlaceOrder_Test.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PythonSettings.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

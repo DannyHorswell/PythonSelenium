@@ -9,12 +9,19 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 
+
+from ConfigFile import config
+
 import logging
 import unittest
 import time
 import re
 
-s = Service("C:\\SeleniumProjects\\WebDrivers\\msedgedriver.exe")
+CONFIG = config()
+
+s = Service(CONFIG.service)
+
+#s = Service("C:\\SeleniumProjects\\WebDrivers\\msedgedriver.exe")
 options = Options()
 options.headless = False
 options.use_chromium = True
@@ -27,6 +34,7 @@ class AddToBasket(unittest.TestCase):
         self.base_url = "https://sap-sta.paws.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
+
 
     def test_add_to_basket(self):
         driver = self.driver
