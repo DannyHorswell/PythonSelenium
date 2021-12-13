@@ -24,7 +24,7 @@ email_prefix = "705d2182d0-b54e92"
 domain = "@inbox.mailtrap.io"
 
 
-class CheckAccountExists(unittest.TestCase):
+class CheckAccountExists_Test(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Edge(service=s, options=options)
         self.driver.maximize_window()

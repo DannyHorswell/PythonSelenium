@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7a126a8f-975a-44c2-badb-f943f642fd49</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Import_Testing.py</StartupFile>
+    <StartupFile>tests\JsonExperiment_Test.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -15,6 +15,7 @@
     <TestFramework>unittest</TestFramework>
     <UnitTestPattern>*_Test.py</UnitTestPattern>
     <UnitTestRootDirectory>tests</UnitTestRootDirectory>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,7 +28,16 @@
   <ItemGroup>
     <Compile Include="ConfigFile.py" />
     <Compile Include="Import_Testing.py" />
+    <Compile Include="Config_Loader.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tests\JsonExperiment_Test.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tests\Simple_Test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tests\Temple_Test.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tests\__init__.py">
@@ -40,10 +50,24 @@
     <Compile Include="tests\LogintoAccountandPlaceOrder_Test.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Example.json">
+      <Publish>True</Publish>
+    </Content>
     <Content Include="PythonSettings.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="tests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>3.7</Version>
+      <Description>env (Python 3.7 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
