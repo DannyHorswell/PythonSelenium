@@ -31,9 +31,12 @@
     <Compile Include="Config_Loader.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="src\pageobjects\LoginPage.py" />
+    <Compile Include="tests\Login_Test.py" />
     <Compile Include="tests\JsonExperiment_Test.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="src\pageobjects\MainPage.py" />
     <Compile Include="tests\Simple_Test.py">
       <SubType>Code</SubType>
     </Compile>
@@ -56,7 +59,9 @@
     <Content Include="PythonSettings.json" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="src\" />
     <Folder Include="tests\" />
+    <Folder Include="src\pageobjects\" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">
