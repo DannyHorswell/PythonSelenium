@@ -20,7 +20,9 @@ class NavBar():
         driver.find_element(By.CLASS_NAME, "search-input").clear()
         driver.find_element(By.CLASS_NAME, "search-input").send_keys(search_text)
         element = WebDriverWait(driver, 3).until(
-            EC.presence_of_element_located((By.CLASS_NAME, "result"))
-            )
+            EC.presence_of_element_located((By.XPATH, "//*[@class='product-matches'][contains(@style, 'display: block;')]"))
+        )
+
+
         
 
