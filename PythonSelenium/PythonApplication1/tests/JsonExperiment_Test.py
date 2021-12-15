@@ -12,7 +12,6 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 from ConfigFile import config
 
-from src.pageobjects.MainPage import MainPage
 from src.pageobjects.LoginPage import LoginPage
 
 CONFIG = config()

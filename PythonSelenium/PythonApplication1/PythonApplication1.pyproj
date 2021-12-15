@@ -36,7 +36,7 @@
     <Compile Include="tests\JsonExperiment_Test.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\pageobjects\MainPage.py" />
+    <Compile Include="src\pageobjects\NavBar.py" />
     <Compile Include="tests\Simple_Test.py">
       <SubType>Code</SubType>
     </Compile>

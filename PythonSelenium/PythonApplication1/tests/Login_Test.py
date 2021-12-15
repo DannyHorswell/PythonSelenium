@@ -10,9 +10,12 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 from ConfigFile import config
 
-from src.pageobjects.MainPage import MainPage
+from src.pageobjects.NavBar import NavBar
 from src.pageobjects.LoginPage import LoginPage
 
 CONFIG = config()
@@ -42,7 +45,7 @@ class Login_Tests(unittest.TestCase):
 
         driver.get(CONFIG.url)
 
-        MainPage.navigate_to_login(driver)
+        NavBar.navigate_to_login(driver)
         LoginPage.enter_email_address(driver, email_prefix + domain)
 
         self.assertTrue(driver.page_source.__contains__("Create an account"))
@@ -58,7 +61,7 @@ class Login_Tests(unittest.TestCase):
 
         driver.get(CONFIG.url)
 
-        MainPage.navigate_to_login(driver)
+        NavBar.navigate_to_login(driver)
         LoginPage.enter_email_address(driver, email_prefix + domain)
         LoginPage.enter_password(driver, password)
 
@@ -75,11 +78,29 @@ class Login_Tests(unittest.TestCase):
 
         driver.get(CONFIG.url)
 
-        MainPage.navigate_to_login(driver)
+        NavBar.navigate_to_login(driver)
         LoginPage.enter_email_address(driver, email_prefix + domain)
         LoginPage.enter_password(driver, password)
 
         self.assertFalse(driver.page_source.__contains__("Your email address or password was incorrect."))
+
+    def test_NavigateFavoriates(self):
+
+        driver = self.driver
+
+        driver.get(CONFIG.url)
+
+        NavBar.navigate_to_favoriates(driver)
+
+    def test_EnterSearch(self):
+
+        driver = self.driver
+
+        driver.get(CONFIG.url)
+
+        NavBar.add_text_to_search(driver, "hills")
+
+        self.assertTrue(driver.page_source.__contains__("Product Matches"), "Product matches not found")
 
 if __name__ == '__main__':
     unittest.main()
